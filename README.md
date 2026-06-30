@@ -46,11 +46,12 @@ cp .env.example .env
 
 ### 3. Configure Environment Variables
 
-Edit the `.env` file and add your OpenAI API key:
+Edit the `.env` file and add your OpenAI and Tavily API keys:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+TAVILY_API_KEY=your_tavily_api_key_here
 ```
 
 ### 4. Setup Vector Databases

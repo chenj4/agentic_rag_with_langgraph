@@ -6,16 +6,15 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "jupyter>=1.1.1",
-    "langchain>=0.3.26",
-    "langchain-chroma>=0.2.4",
-    "langchain-community>=0.3.27",
-    "langchain-openai>=0.3.27",
-    "langgraph>=0.5.2",
+    "langchain>=1.0",
+    "langchain-chroma>=1.0",
+    "langchain-openai>=1.0",
+    "langchain-tavily>=0.2",
+    "langgraph>=1.0",
     "nest-asyncio>=1.6.0",
     "pandas>=2.3.1",
     "pydantic>=2.11.7",
     "pyppeteer>=2.0.0",
     "python-dotenv>=1.1.1",
-    "tavily-python>=0.7.9",
     "tqdm>=4.67.1",
 ]
