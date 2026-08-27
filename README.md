@@ -5,7 +5,7 @@ Exercises for the Agentic RAG live course for O'Reilly.
 ## Prerequisites
 
 - Python 3.12+
-- OpenAI API key
+- Azure OpenAI API key and endpoint
 - Tavily API key ; for web search (see: https://www.tavily.com/)
 - Git
 
@@ -46,11 +46,11 @@ cp .env.example .env
 
 ### 3. Configure Environment Variables
 
-Edit the `.env` file and add your OpenAI and Tavily API keys:
+Edit the `.env` file and add your Azure OpenAI and Tavily credentials:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
+AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com/
 TAVILY_API_KEY=your_tavily_api_key_here
 ```
 
@@ -77,7 +77,7 @@ This creates separate collections in `vector_store/chroma_db_separate/` (used by
 - `techmart_faq` (frequently asked questions)  
 - `techmart_troubleshooting` (troubleshooting guides)
 
-**Note:** Both scripts will show progress bars and take a few minutes to complete due to API calls to OpenAI for generating embeddings.
+**Note:** Both scripts will show progress bars and take a few minutes to complete due to API calls to Azure OpenAI for generating embeddings.
 
 ### 5. Verify Setup
 
@@ -146,9 +146,9 @@ The project uses TechMart e-commerce data:
    - Run PowerShell as Administrator
    - Use the full command: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
-3. **OpenAI API errors**
-   - Verify your API key is correct in `.env`
-   - Check you have sufficient API credits
+3. **Azure OpenAI API errors**
+   - Verify your API key and endpoint are correct in `.env`
+   - Check you have sufficient API credits and the deployments exist in your Azure resource
 
 4. **Permission errors**
    - Windows: Run Command Prompt/PowerShell as Administrator

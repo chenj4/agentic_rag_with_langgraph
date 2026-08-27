@@ -8,7 +8,7 @@ import os
 import pandas as pd
 from pathlib import Path
 from langchain_chroma import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import AzureOpenAIEmbeddings
 from langchain_core.documents import Document
 from dotenv import load_dotenv
 from tqdm import tqdm
@@ -41,15 +41,17 @@ def load_csv_as_documents(file_path: str) -> list[Document]:
 
 def main():
     """Main function to ingest all data files into ChromaDB."""
-    # Get OpenAI API key from environment
-    openai_api_key = os.getenv("OPENAI_API_KEY")
-    if not openai_api_key:
-        raise ValueError("OPENAI_API_KEY environment variable is required")
-    
+    # Get Azure OpenAI credentials from environment
+    azure_openai_api_key = os.getenv("AZURE_OPENAI_API_KEY")
+    if not azure_openai_api_key:
+        raise ValueError("AZURE_OPENAI_API_KEY environment variable is required")
+
     # Initialize embeddings model
-    embeddings = OpenAIEmbeddings(
-        model=os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small"),
-        api_key=openai_api_key
+    embeddings = AzureOpenAIEmbeddings(
+        azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
+        azure_deployment="text-embedding-3-large_1",
+        api_version="2024-02-01",
+        api_key=azure_openai_api_key,
     )
     
     # Setup ChromaDB
